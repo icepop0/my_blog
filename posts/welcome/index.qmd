@@ -1,0 +1,18 @@
+---
+title: "Bienvenue sur le blog olympicsWeather !"
+author: "Angel SINEAU"
+date: "2024-03-09"
+categories: [news]
+---
+
+## Bienvenu, Welcome, Bienvenido !
+
+![](imageaccueil.jpg){fig-align="center" width="430"}
+
+**Cliquer pour plus d'informations.**
+
+**OlympicsWeather** est un package conçu pour R, offrant la possibilité de récupérer et afficher les informations météorologiques liées à une adresse spécifique ou à des coordonnées GPS.
+
+Ce package intègre trois fonctions clés : **get_forecast**, qui récupère les prévisions météo et les présente sous forme de tibble ; **visualiser_forecast_d**, qui fournit une visualisation des données météorologiques sur une base quotidienne ; et **visualiser_forecast_h**, qui permet d'afficher les prévisions météo heure par heure.
+
+À vos marques, prêt, codez !

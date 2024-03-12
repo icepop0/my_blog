@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Présentation",
+    "section": "",
+    "text": "OlympicsWeather est un package conçu pour R, offrant la possibilité de récupérer et afficher les informations météorologiques liées à une adresse spécifique ou à des coordonnées GPS. Ce package intègre trois fonctions clés : get_forecast, qui récupère les prévisions météo et les présente sous forme de tibble ; visualiser_forecast_d, qui fournit une visualisation des données météorologiques sur une base quotidienne ; et visualiser_forecast_h, qui permet d’afficher les prévisions météo heure par heure."
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Bienvenue sur le blog olympicsWeather !",
+    "section": "",
+    "text": "Cliquer pour plus d’informations.\nOlympicsWeather est un package conçu pour R, offrant la possibilité de récupérer et afficher les informations météorologiques liées à une adresse spécifique ou à des coordonnées GPS.\nCe package intègre trois fonctions clés : get_forecast, qui récupère les prévisions météo et les présente sous forme de tibble ; visualiser_forecast_d, qui fournit une visualisation des données météorologiques sur une base quotidienne ; et visualiser_forecast_h, qui permet d’afficher les prévisions météo heure par heure.\nÀ vos marques, prêt, codez !"
+  },
+  {
+    "objectID": "posts/welcome/index.html#bienvenu-welcome-bienvenido",
+    "href": "posts/welcome/index.html#bienvenu-welcome-bienvenido",
+    "title": "Bienvenue sur le blog olympicsWeather !",
+    "section": "",
+    "text": "Cliquer pour plus d’informations.\nOlympicsWeather est un package conçu pour R, offrant la possibilité de récupérer et afficher les informations météorologiques liées à une adresse spécifique ou à des coordonnées GPS.\nCe package intègre trois fonctions clés : get_forecast, qui récupère les prévisions météo et les présente sous forme de tibble ; visualiser_forecast_d, qui fournit une visualisation des données météorologiques sur une base quotidienne ; et visualiser_forecast_h, qui permet d’afficher les prévisions météo heure par heure.\nÀ vos marques, prêt, codez !"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "olympicsWeather",
+    "section": "",
+    "text": "Bienvenue sur le blog olympicsWeather !\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2024\n\n\nAngel SINEAU\n\n\n\n\n\n\nNo matching items"
+  }
+]

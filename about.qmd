@@ -1,0 +1,20 @@
+---
+title: "Présentation"
+image: imageaccueil.jpg
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/elonmusk?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/angel-sineau-1261051a8/
+    - icon: github
+      text: Github/icepop0
+      href: https://github.com/icepop0
+---
+
+OlympicsWeather est un package conçu pour R, offrant la possibilité de récupérer et afficher les informations météorologiques liées à une adresse spécifique ou à des coordonnées GPS.
+
+Ce package intègre trois fonctions clés : **`get_forecast`**, qui récupère les prévisions météo et les présente sous forme de tibble ; **`visualiser_forecast_d`**, qui fournit une visualisation des données météorologiques sur une base quotidienne ; et **`visualiser_forecast_h`**, qui permet d'afficher les prévisions météo heure par heure.

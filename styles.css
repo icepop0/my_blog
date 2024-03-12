@@ -1,0 +1,12 @@
+/* css styles */
+
+
+/* Pour mettre le titre en gras */
+h1 {
+  font-weight: bold;
+}
+
+/* Pour changer la couleur de fond de la bande derrière le titre */
+.title-band {
+  background-color: blue; /* Remplacez 'blue' par le code couleur de votre choix */
+}
