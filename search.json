@@ -4,14 +4,14 @@
     "href": "about.html",
     "title": "Présentation",
     "section": "",
-    "text": "OlympicsWeather est un package conçu pour R, offrant la possibilité de récupérer et afficher les informations météorologiques liées à une adresse spécifique ou à des coordonnées GPS. Ce package intègre trois fonctions clés : get_forecast, qui récupère les prévisions météo et les présente sous forme de tibble ; visualiser_forecast_d, qui fournit une visualisation des données météorologiques sur une base quotidienne ; et visualiser_forecast_h, qui permet d’afficher les prévisions météo heure par heure."
+    "text": "OlympicsWeather est un package conçu pour R, offrant la possibilité de récupérer et afficher les informations météorologiques liées à une adresse spécifique ou à des coordonnées GPS.\nCe package intègre trois fonctions clés : get_forecast, qui récupère les prévisions météo et les présente sous forme de tibble ; visualiser_forecast_d, qui fournit une visualisation des données météorologiques sur une base quotidienne ; et visualiser_forecast_h, qui permet d’afficher les prévisions météo heure par heure."
   },
   {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
     "title": "Bienvenue sur le blog olympicsWeather !",
     "section": "",
-    "text": "Cliquer pour plus d’informations.\nOlympicsWeather est un package conçu pour R, offrant la possibilité de récupérer et afficher les informations météorologiques liées à une adresse spécifique ou à des coordonnées GPS.\nCe package intègre trois fonctions clés : get_forecast, qui récupère les prévisions météo et les présente sous forme de tibble ; visualiser_forecast_d, qui fournit une visualisation des données météorologiques sur une base quotidienne ; et visualiser_forecast_h, qui permet d’afficher les prévisions météo heure par heure.\nÀ vos marques, prêt, codez !"
+    "text": "Cliquer pour plus d’informations.\nOlympicsWeather est un package conçu pour R, offrant la possibilité de récupérer et afficher les informations météorologiques liées à une adresse spécifique ou à des coordonnées GPS.\nCe package intègre trois fonctions clés : get_forecast, qui récupère les prévisions météo et les présente sous forme de tibble ; visualiser_forecast_d, qui fournit une visualisation des données météorologiques sur une base quotidienne ; et visualiser_forecast_h, qui permet d’afficher les prévisions météo heure par heure.\nÀ vos marques, prêt, codez !\nPour installer le package, vous entrerez la commande suivante :\nremotes::install_github(\"icepop0/olympicsWeather\")\n! Notez que pour lancer cette commande, vous devez avoir lancé le package remotes.\nSi ce n’est pas le cas, exécutez cette commande :\ninstall.packages(\"remotes\")\nlibrary(remotes)\n\n\nQuelles sont les prévisions météo à 7 jours pour le Stade de France ?\n\nlibrary(olympicsWeather)\nvisualiser_forecast_d(\"stade de france\")\n\nPassing 1 address to the Nominatim single address geocoder\n\n\nQuery completed in: 1 seconds\n\n\n\n\n\nTahiti ?\n\nvisualiser_forecast_d(\"Tahiti\")\n\nPassing 1 address to the Nominatim single address geocoder\n\n\nQuery completed in: 1 seconds\n\n\n\n\n\nEt pour les coordonnées GPS 43.276703, 5.334791 ?\n\nvisualiser_forecast_d(43.276703, 5.334791)"
   },
   {
     "objectID": "posts/welcome/index.html#bienvenu-welcome-bienvenido",
@@ -33,5 +33,12 @@
     "title": "olympicsWeather",
     "section": "",
     "text": "Bienvenue sur le blog olympicsWeather !\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2024\n\n\nAngel SINEAU\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/welcome/index.html#librairie-olympicsweather",
+    "href": "posts/welcome/index.html#librairie-olympicsweather",
+    "title": "Bienvenue sur le blog olympicsWeather !",
+    "section": "",
+    "text": "Cliquer pour plus d’informations.\nOlympicsWeather est un package conçu pour R, offrant la possibilité de récupérer et afficher les informations météorologiques liées à une adresse spécifique ou à des coordonnées GPS.\nCe package intègre trois fonctions clés : get_forecast, qui récupère les prévisions météo et les présente sous forme de tibble ; visualiser_forecast_d, qui fournit une visualisation des données météorologiques sur une base quotidienne ; et visualiser_forecast_h, qui permet d’afficher les prévisions météo heure par heure.\nÀ vos marques, prêt, codez !\nPour installer le package, vous entrerez la commande suivante :\nremotes::install_github(\"icepop0/olympicsWeather\")\n! Notez que pour lancer cette commande, vous devez avoir lancé le package remotes.\nSi ce n’est pas le cas, exécutez cette commande :\ninstall.packages(\"remotes\")\nlibrary(remotes)\n\n\nQuelles sont les prévisions météo à 7 jours pour le Stade de France ?\n\nlibrary(olympicsWeather)\nvisualiser_forecast_d(\"stade de france\")\n\nPassing 1 address to the Nominatim single address geocoder\n\n\nQuery completed in: 1 seconds\n\n\n\n\n\nTahiti ?\n\nvisualiser_forecast_d(\"Tahiti\")\n\nPassing 1 address to the Nominatim single address geocoder\n\n\nQuery completed in: 1 seconds\n\n\n\n\n\nEt pour les coordonnées GPS 43.276703, 5.334791 ?\n\nvisualiser_forecast_d(43.276703, 5.334791)"
   }
 ]
