@@ -5,7 +5,9 @@ date: "2024-03-09"
 categories: [news]
 ---
 
-## Bienvenu, Welcome, Bienvenido !
+## Librairie olympicsWeather
+
+### Bienvenu, Welcome, Bienvenido !
 
 ![](imageaccueil.jpg){fig-align="center" width="430"}
 
@@ -15,4 +17,37 @@ categories: [news]
 
 Ce package intègre trois fonctions clés : **get_forecast**, qui récupère les prévisions météo et les présente sous forme de tibble ; **visualiser_forecast_d**, qui fournit une visualisation des données météorologiques sur une base quotidienne ; et **visualiser_forecast_h**, qui permet d'afficher les prévisions météo heure par heure.
 
-À vos marques, prêt, codez !
+À vos marques, prêt, **codez** !
+
+Pour installer le package, vous entrerez la commande suivante :
+
+| `remotes::install_github("icepop0/olympicsWeather")`
+
+[***! Notez que pour lancer cette commande, vous devez avoir lancé le package `remotes.`***]{.underline}
+
+[***Si ce n'est pas le cas, exécutez cette commande :***]{.underline}
+
+| `install.packages("remotes")`
+| `library(remotes)`
+
+#### [Démonstration :]{.underline}
+
+Quelles sont les prévisions météo **à 7 jours** pour le **Stade de France** ?
+
+```{r}
+library(olympicsWeather)
+visualiser_forecast_d("stade de france")
+```
+
+**Tahiti ?**
+
+```{r}
+visualiser_forecast_d("Tahiti")
+```
+
+Et pour les coordonnées GPS **43.276703, 5.334791** ?
+
+```{r}
+visualiser_forecast_d(43.276703, 5.334791)
+
+```

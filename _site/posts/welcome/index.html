@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -88,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Présentation</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/icepop0" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -146,8 +180,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="bienvenu-welcome-bienvenido" class="level2">
-<h2 class="anchored" data-anchor-id="bienvenu-welcome-bienvenido">Bienvenu, Welcome, Bienvenido !</h2>
+<section id="librairie-olympicsweather" class="level2">
+<h2 class="anchored" data-anchor-id="librairie-olympicsweather">Librairie olympicsWeather</h2>
+<section id="bienvenu-welcome-bienvenido" class="level3">
+<h3 class="anchored" data-anchor-id="bienvenu-welcome-bienvenido">Bienvenu, Welcome, Bienvenido !</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="imageaccueil.jpg" class="img-fluid figure-img" width="430"></p>
@@ -156,9 +192,53 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Cliquer pour plus d’informations.</strong></p>
 <p><strong>OlympicsWeather</strong> est un package conçu pour R, offrant la possibilité de récupérer et afficher les informations météorologiques liées à une adresse spécifique ou à des coordonnées GPS.</p>
 <p>Ce package intègre trois fonctions clés : <strong>get_forecast</strong>, qui récupère les prévisions météo et les présente sous forme de tibble ; <strong>visualiser_forecast_d</strong>, qui fournit une visualisation des données météorologiques sur une base quotidienne ; et <strong>visualiser_forecast_h</strong>, qui permet d’afficher les prévisions météo heure par heure.</p>
-<p>À vos marques, prêt, codez !</p>
+<p>À vos marques, prêt, <strong>codez</strong> !</p>
+<p>Pour installer le package, vous entrerez la commande suivante :</p>
+<p><code>remotes::install_github("icepop0/olympicsWeather")</code></p>
+<p><u><strong><em>! Notez que pour lancer cette commande, vous devez avoir lancé le package <code>remotes.</code></em></strong></u></p>
+<p><u><strong><em>Si ce n’est pas le cas, exécutez cette commande :</em></strong></u></p>
+<p><code>install.packages("remotes")</code><br>
+<code>library(remotes)</code></p>
+<section id="démonstration" class="level4">
+<h4 class="anchored" data-anchor-id="démonstration"><u>Démonstration :</u></h4>
+<p>Quelles sont les prévisions météo <strong>à 7 jours</strong> pour le <strong>Stade de France</strong> ?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(olympicsWeather)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">visualiser_forecast_d</span>(<span class="st">"stade de france"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Passing 1 address to the Nominatim single address geocoder</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Query completed in: 1 seconds</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><strong>Tahiti ?</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualiser_forecast_d</span>(<span class="st">"Tahiti"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Passing 1 address to the Nominatim single address geocoder</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Query completed in: 1 seconds</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Et pour les coordonnées GPS <strong>43.276703, 5.334791</strong> ?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">visualiser_forecast_d</span>(<span class="fl">43.276703</span>, <span class="fl">5.334791</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

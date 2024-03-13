@@ -1,0 +1,16 @@
+{
+  "hash": "c0f9b02a028cfd2b1152990830cc264f",
+  "result": {
+    "markdown": "---\ntitle: \"Bienvenue sur le blog olympicsWeather !\"\nauthor: \"Angel SINEAU\"\ndate: \"2024-03-09\"\ncategories: [news]\n---\n\n\n## Librairie olympicsWeather\n\n### Bienvenu, Welcome, Bienvenido !\n\n![](imageaccueil.jpg){fig-align=\"center\" width=\"430\"}\n\n**Cliquer pour plus d'informations.**\n\n**OlympicsWeather** est un package conçu pour R, offrant la possibilité de récupérer et afficher les informations météorologiques liées à une adresse spécifique ou à des coordonnées GPS.\n\nCe package intègre trois fonctions clés : **get_forecast**, qui récupère les prévisions météo et les présente sous forme de tibble ; **visualiser_forecast_d**, qui fournit une visualisation des données météorologiques sur une base quotidienne ; et **visualiser_forecast_h**, qui permet d'afficher les prévisions météo heure par heure.\n\nÀ vos marques, prêt, **codez** !\n\nPour installer le package, vous entrerez la commande suivante :\n\n| `remotes::install_github(\"icepop0/olympicsWeather\")`\n\n[***! Notez que pour lancer cette commande, vous devez avoir lancé le package `remotes.`***]{.underline}\n\n[***Si ce n'est pas le cas, exécutez cette commande :***]{.underline}\n\n| `install.packages(\"remotes\")`\n| `library(remotes)`\n\n#### [Démonstration :]{.underline}\n\nQuelles sont les prévisions météo **à 7 jours** pour le **Stade de France** ?\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(olympicsWeather)\nvisualiser_forecast_d(\"stade de france\")\n```\n\n::: {.cell-output .cell-output-stderr}\n```\nPassing 1 address to the Nominatim single address geocoder\n```\n:::\n\n::: {.cell-output .cell-output-stderr}\n```\nQuery completed in: 1 seconds\n```\n:::\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\n**Tahiti ?**\n\n\n::: {.cell}\n\n```{.r .cell-code}\nvisualiser_forecast_d(\"Tahiti\")\n```\n\n::: {.cell-output .cell-output-stderr}\n```\nPassing 1 address to the Nominatim single address geocoder\n```\n:::\n\n::: {.cell-output .cell-output-stderr}\n```\nQuery completed in: 1 seconds\n```\n:::\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n\nEt pour les coordonnées GPS **43.276703, 5.334791** ?\n\n\n::: {.cell}\n\n```{.r .cell-code}\nvisualiser_forecast_d(43.276703, 5.334791)\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
