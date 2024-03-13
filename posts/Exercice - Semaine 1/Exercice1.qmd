@@ -1,0 +1,269 @@
+---
+title: "Exercice1"
+author: "Angel Sineau"
+format: html
+editor: visual
+---
+
+## Exercices - Semaine 1
+
+## M1 ECAP - 2023/24
+
+Pour cet exercice, nous allons télécharger un jeu de données issu de https://data.gouv.fr sur les infrastructures olympiques des JO 2024 à Paris. Le jeu de données est disponible ici.
+
+L’objectif de cet exercice est d’utiliser uniquement des fonctions de R base.
+
+#### 1. Créez un script .R intitulé exercice.R.
+
+#### 2. Lisez le fichier téléchargé. Le résultat sera affecté à l’objet de nom data_ex. 
+
+#### Le jeux de données contient 4 colonnes. 
+
+#### Quels sont les noms et la nature des colonnes ? 
+
+#### Combien de lignes contient la data.frame ?
+
+```{r}
+data_ex = read.csv2("paris-2024-sites-olympiques-et-paralympiques-franciliens.csv") 
+
+summary(data_ex) 
+
+colnames(data_ex)
+
+str(data_ex) 
+
+dim(data_ex)
+```
+
+-   Les noms des colonnes dans ma base `data_ex` sont `geo_point`, `nom`, `sites_olympiques_paralympiques`, et `sports`.
+
+-   Toutes les colonnes sont de type `character`, ce qui signifie qu'elles contiennent des données textuelles.
+
+-   Ma base `data_ex` contient 31 lignes, indiquant que j'ai des informations sur 31 sites olympiques ou paralympiques différents.
+
+#### 3 & 4. Combien y a t’il de sites olympiques, paralympiques ?
+
+```{r}
+table(data_ex$sites_olympiques_paralympiques)
+```
+
+10 sites sont seulement olympiques, 3 sont seulement paralympiques, et 16 sont mixtes. Il y a également 2 valeurs manquantes, dans la colonne `sites_olympiques_paralympiques.`
+
+#### 
+
+#### 5. Quels sont les sites qui accueillent plusieurs disciplines sportives ?
+
+```{r}
+sites_multiples_sports <- data_ex[grep(",", data_ex$sports), ]
+
+print(sites_multiples_sports$nom) 
+table(sites_multiples_sports$nom) 
+dim(sites_multiples_sports)
+```
+
+19 sites accueillent plusieurs disciplines sportives.
+
+#### 6. Quels sont les disciplines para-olympiques accueillies dans ces sites franciliens ?
+
+```{r}
+
+sites_paralympiques_mixtes <- data_ex[grepl("Site paralympique", data_ex$sites_olympiques_paralympiques), ]
+
+disciplines_paralympiques <- unique(sites_paralympiques_mixtes$sports)
+print(disciplines_paralympiques)
+
+```
+
+Les disciplines sont les suivantes :
+
+-   Para athlétisme
+
+-   Cyclisme sur piste, sur route
+
+-   Tennis de table
+
+-   Judo
+
+-   Natation
+
+-   Aviron
+
+-   Badminton
+
+-   Powerlifting
+
+-   Equitation
+
+-   Athlétisme
+
+-   Taekwondo
+
+-   Tir à l'arc
+
+-   
+
+#### 7. Quel(s) site(s) accueille(nt) le plus de disciplines différentes ?
+
+```{r}
+
+# Séparation des disciplines sportives et comptage pour chaque site
+# La fonction strsplit va séparer les sports sur chaque site, qui sont séparés par des virgules
+data_ex$sports_list <- strsplit(data_ex$sports, ",")
+
+# Calcul du nombre de sports pour chaque site
+# La fonction sapply va appliquer la fonction length à chaque liste de sports pour chaque site
+data_ex$nombre_sports <- sapply(data_ex$sports_list, length)
+
+# Identification du ou des site(s) qui accueillent le plus de disciplines différentes
+# La fonction which.max va trouver l'index du site ou des sites avec le nombre maximal de sports
+sites_max_sports <- data_ex[which(data_ex$nombre_sports == max(data_ex$nombre_sports)), ]
+
+# Affichage des sites avec le nombre maximum de disciplines différentes
+print(sites_max_sports$nom)
+
+```
+
+Le résultat indique que les sites accueillant le plus grand nombre de disciplines différentes sont les suivants :
+
+-   Arena Bercy
+
+-   Arena Paris nord
+
+-   Stade de la Concorde
+
+-   Arena Champs de Mars
+
+-   Stade nautique
+
+-   Arena La Chapelle
+
+-   Grand Palais
+
+-   Invalides
+
+#### 8. Quel discipline aura lieu sur le plus grand nombre de sites ? Quels sont ces sites ?
+
+```{r}
+
+# Séparation des disciplines sportives pour chaque site
+data_ex$sports_list <- strsplit(data_ex$sports, ",")
+
+# Aplatir la liste des sports en un seul vecteur
+sports_flat <- unlist(data_ex$sports_list)
+
+# Compter la fréquence de chaque sport
+sports_count <- table(sports_flat)
+
+# Trouver le sport le plus fréquent
+most_frequent_sport <- names(which.max(sports_count))
+
+# Identifier les sites accueillant ce sport
+sites_most_frequent_sport <- data_ex[names(data_ex)[which(sapply(data_ex$sports_list, function(x) most_frequent_sport %in% x))], "nom"]
+
+# Afficher le sport le plus fréquent et les sites correspondants
+print(paste("La discipline la plus répandue est:", most_frequent_sport))
+print("Les sites accueillant cette discipline sont :")
+print(sites_most_frequent_sport)
+
+
+# Filtrer les données pour la discipline d'Athlétisme
+sites_athletisme <- data_ex[grepl("Athlétisme", data_ex$sports), ]
+
+# Extraire les noms des sites accueillant l'Athlétisme
+noms_sites_athletisme <- unique(sites_athletisme$nom)
+
+# Affichage des noms des sites
+print("Les sites accueillant l'athlétisme sont :")
+print(noms_sites_athletisme)
+
+
+```
+
+\
+La discipline qui aura lieu sur le plus grand nombre de sites est l'athlétisme. Les lieux en question sont :
+
+-   Stade de France
+
+-   Hôtel de ville de Paris
+
+-   Pont d'Iéna
+
+-   Invalides
+
+#### 9. A vol d’oiseau, quels sont les sites les deux sites les plus proches ?
+
+```{r}
+# Charger la librairie geosphere pour le calcul de distance
+library(geosphere)
+
+# Extraire les coordonnées et les transformer en matrice numérique
+coords <- strsplit(as.character(data_ex$geo_point), ", ")
+coords <- do.call(rbind, lapply(coords, as.numeric))
+
+# Calculer les distances entre tous les couples de sites
+distances <- distm(coords, fun = distHaversine)
+
+# Trouver la paire de sites la plus proche
+min_distance <- which(distances == min(distances[upper.tri(distances)]), arr.ind = TRUE)
+
+# Afficher les noms des deux sites les plus proches
+print(paste("Les deux sites les plus proches sont :", data_ex$nom[min_distance[1,1]], "et", data_ex$nom[min_distance[1,2]]))
+
+```
+
+Les deux sites les plus proches sont : **Stade BMX de Saint-Quentin-en-Yvelines** et **Vélodrome National de Saint-Quentin-en-Yvelines**.
+
+#### 10. Quels sont les deux sites les plus éloignés ?
+
+```{r}
+# Charger la librairie nécessaire pour le calcul de distance
+library(geosphere)
+
+# Extraire les coordonnées et les convertir en numérique
+coords <- strsplit(as.character(data_ex$geo_point), ", ")
+coords <- lapply(coords, function(x) as.numeric(x))
+coords <- do.call(rbind, coords)
+
+# Calculer les distances entre tous les sites
+distances <- distm(coords, coords, fun = distHaversine)
+
+# Trouver les indices des deux sites les plus proches
+indices_proches <- which(distances == min(distances[upper.tri(distances)]), arr.ind = TRUE)
+
+# Trouver les indices des deux sites les plus éloignés
+indices_eloignes <- which(distances == max(distances), arr.ind = TRUE)
+
+# Afficher les noms des sites les plus proches
+print("Les deux sites les plus proches sont :")
+print(data_ex$nom[indices_proches])
+
+# Afficher les noms des sites les plus éloignés
+print("Les deux sites les plus éloignés sont :")
+print(data_ex$nom[indices_eloignes])
+
+```
+
+Les deux sites les plus éloignés sont la **Colline d'Elancourt** et le **Stade Nautique**.
+
+#### 11. Vous êtes un heureux millionaire et souhaitez investir dans un bien immobilier. Vous décidez d’acheter un appartement situé au barycentre de l’ensemble des sites olympiques.
+
+#### Où se situe cet appartement ?
+
+```{r}
+# Sélection des sites olympiques et mixtes
+sites_olympiques <- data_ex[grepl("Site olympique", data_ex$sites_olympiques_paralympiques), ]
+
+# Extraction des coordonnées géographiques
+coords <- strsplit(as.character(sites_olympiques$geo_point), ", ")
+coords <- lapply(coords, function(x) as.numeric(x))
+coords <- do.call(rbind, coords)
+
+# Calcul du barycentre
+barycentre <- colMeans(coords)
+
+# Affichage des coordonnées du barycentre
+print(paste("Le barycentre des sites olympiques est situé aux coordonnées suivantes : Latitude =", barycentre[1], ", Longitude =", barycentre[2]))
+
+```
+
+D'après les résultats, le barycentre des sites olympiques est situé aux coordonnées suivantes : Latitude = 48.8581648461538, Longitude = 2.27905757692308 ce qui se situe à Paris, plus précisément au 17 Place du Trocadéro et du 11 Novembre.
